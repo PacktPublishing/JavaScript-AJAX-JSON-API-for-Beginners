@@ -1,0 +1,48 @@
+Source Code
+First:
+<input type="text" name="first" value="Laurence">
+<br>Last:
+<input type="text" name="last" value="Svekis">
+<button class="adder">Add</button>
+<button class="lister">List</button>
+<div class="message"></div>
+<script>
+    const btn = document.querySelector('.adder');
+    const first = document.querySelector('input[name=first]');
+    const last = document.querySelector('input[name=last]');
+    const lister = document.querySelector('.lister');
+    const message = document.querySelector('.message');
+    lister.addEventListener('click', output);
+    btn.addEventListener('click', adder);
+ 
+    function output() {
+        message.innerHTML = "";
+        fetch('http://localhost:3000/people').then(function (rep) {
+            return rep.json()
+        }).then(function (data) {
+            console.log(data);
+            data.forEach(function (el) {
+                console.log(el);
+                message.innerHTML += `${el.first} ${el.last} <br>`;
+            })
+        })
+    }
+ 
+    function adder() {
+        fetch('http://localhost:3000/people/', {
+            method: 'POST'
+            , body: JSON.stringify({
+                first: first.value
+                , last: last.value
+            })
+            , headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(function (res) {
+            return res.text();
+        }).then(function (data) {
+            console.log(data);
+            output();
+        })
+    }
+</script>

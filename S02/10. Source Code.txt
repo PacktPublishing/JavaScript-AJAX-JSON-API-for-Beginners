@@ -1,0 +1,24 @@
+Source Code
+<script>
+    const myCar1 = {
+        color: "red"
+        , model: "mustang"
+        , company: "ford"
+        , year: 2019
+        , price: 50000
+    }
+    const myCar2 = {
+        "color": "red"
+        , "model": "mustang"
+        , "company": "ford"
+        , "year": 2019
+        , "price": 50000
+    }
+    console.log(myCar1);
+    console.log(myCar2);
+    const temp = 'color';
+    console.log(myCar2[temp]);
+    console.log(myCar1.color);
+    console.log(myCar1['color']);
+    console.log(myCar1["color"]);
+</script>

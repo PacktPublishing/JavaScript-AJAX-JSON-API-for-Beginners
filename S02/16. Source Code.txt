@@ -1,0 +1,47 @@
+Source Code
+<script>
+    const myObj = {
+        "people": [
+            {
+                "first": "Mike"
+                , "last": "Smith"
+                , "age": 30
+            }
+            , {
+                "first": "Jane"
+                , "last": "Doe"
+                , "age": 20
+            }
+            , {
+                "first": "John"
+                , "last": "Smithy"
+                , "age": 40
+            }
+    ]
+        , "places": [
+            {
+                "location": "Toronto"
+            }
+            , {
+                "location": "New York"
+            }
+    ]
+    };
+    for (let x = 0; x < myObj.people.length; x++) {
+        //console.log(myObj.people[x]);
+        //console.log(myObj.people[x].first);
+    }
+    myObj.people.forEach(function (person) {
+        console.log(person.first);
+        //console.log(index);
+    })
+    fetch('https://api.myjson.com/bins/17vln4').then(function (response) {
+        return response.json();
+    }).then(function (data) {
+        data.results.forEach(function (person) {
+            console.log(person.email);
+            //console.log(index);
+        })
+    });
+    console.log(myObj);
+</script>

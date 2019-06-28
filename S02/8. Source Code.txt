@@ -1,0 +1,11 @@
+Source Code
+<script>
+    const myCar = {
+        "color": "red"
+    };
+    myCar.model = "Mustang";
+    myCar.company = "Ford";
+    myCar.year = 2017;
+    myCar.price = 50000;
+    console.log(myCar);
+</script>

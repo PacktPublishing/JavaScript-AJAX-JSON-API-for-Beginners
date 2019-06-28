@@ -1,0 +1,16 @@
+<script>
+    const json = {
+        first: "laurence"
+        , last: "svekis"
+        , count: 0
+    };
+    console.log(json);
+    const str = JSON.stringify(json);
+    console.log(str);
+    const json1 = JSON.parse(str);
+    console.log(json1);
+    json1.count++;
+    console.log(json1);
+    const str1 = JSON.stringify(json1);
+    console.log(str1);
+</script>

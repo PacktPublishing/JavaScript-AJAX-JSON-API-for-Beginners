@@ -1,0 +1,14 @@
+<div id="output1"></div>
+<div id="output2"></div>
+<script>
+    const output1 = document.getElementById('output1');
+    const output2 = document.getElementById('output2');
+    const myObj = {
+        "firstName": "Mike"
+        , "lastName": "Smith"
+        , "age": 30
+    }
+    console.log(myObj);
+    output1.textContent = myObj.firstName;
+    output2.textContent = myObj.lastName;
+</script>

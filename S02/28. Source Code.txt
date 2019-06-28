@@ -1,0 +1,21 @@
+Source Code
+<div class="output1"></div>
+<div class="output2"></div>
+<script>
+    const output1 = document.querySelector('.output1');
+    const output2 = document.querySelector('.output2');
+    const url = 'https://randomuser.me/api/?results=10';
+    fetchData();
+ 
+    function fetchData() {
+        fetch(url).then(function (rep) {
+            return rep.json()
+        }).then(function (data) {
+            console.log(data.results);
+            data.results.forEach(function (person) {
+                console.log(person);
+                output1.innerHTML += `${person.name.first} ${person.name.last} <img src="${person.picture.thumbnail}"><br>`;
+            })
+        })
+    }
+</script>

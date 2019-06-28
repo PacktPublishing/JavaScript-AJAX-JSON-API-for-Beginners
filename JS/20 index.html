@@ -1,0 +1,28 @@
+title :
+<input type="text" name="title" value="Mr">
+<br> Name :
+<input type="text" name="name" value="Laurence">
+<button>Add</button>
+<script>
+    const btn = document.querySelector('button');
+    const title = document.querySelector('input[name=title]');
+    const n = document.querySelector('input[name=name]');
+    btn.addEventListener('click', adder);
+
+    function adder() {
+        fetch('http://localhost:3000/posts/', {
+            method: 'POST'
+            , body: JSON.stringify({
+                title: title.value
+                , name: n.value
+            })
+            , headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(function (res) {
+            return res.text();
+        }).then(function (data) {
+            console.log(data);
+        })
+    }
+</script>

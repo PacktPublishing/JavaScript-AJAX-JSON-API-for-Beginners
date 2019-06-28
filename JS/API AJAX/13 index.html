@@ -1,0 +1,24 @@
+<div class="output1"></div>
+<div class="output2"></div>
+<script>
+    const output1 = document.querySelector('.output1');
+    const output2 = document.querySelector('.output2');
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        //console.log(xhr);
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            //console.log(xhr.responseText);
+            let temp = JSON.parse(xhr.responseText);
+            console.log(temp);
+            for (let x = 0; x < temp.results.length; x++) {
+                console.log(temp.results[x]);
+                let person = temp.results[x];
+                output1.innerHTML += `${person.name.first} ${person.name.last} <img src="${person.picture.thumbnail}"><br>`;
+            }
+            //output1.textContent = `${temp.results[0].name.first}`;
+            //output2.textContent = `${temp.results[0].name.last}`;
+        }
+    }
+    xhr.open('get', 'https://randomuser.me/api/?results=10');
+    xhr.send();
+</script>

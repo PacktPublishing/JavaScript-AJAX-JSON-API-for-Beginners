@@ -1,0 +1,19 @@
+<script>
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        console.log(xhr);
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            console.log(xhr.responseText);
+            let temp = JSON.parse(xhr.responseText);
+            console.log(temp.people);
+        }
+    }
+    xhr.onprogress = function () {
+        console.log('loading');
+    }
+    xhr.onload = function () {
+        console.log('done');
+    }
+    xhr.open('get', 'https://api.myjson.com/bins/1lzpg');
+    xhr.send();
+</script>
